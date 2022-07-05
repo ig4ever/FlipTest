@@ -12,7 +12,7 @@ import TransactionDetail from '../containers/TransactionDetail';
 /** Initialize Navigator */
 const Stack = createStackNavigator<RootStackParamList>();
 
-const AppNavigator: FC = () => {
+const AppNavigator: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator

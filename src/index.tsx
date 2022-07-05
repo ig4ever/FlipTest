@@ -4,6 +4,7 @@ import FlashMessage from 'react-native-flash-message';
 import {Provider} from 'react-redux';
 import AppNavigator from './navigation';
 import {store} from './store';
+import {Colors} from './styles/Colors';
 
 const App = () => {
   return (
@@ -21,6 +22,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: Colors.WHITE_BACKGROUND,
   },
 });

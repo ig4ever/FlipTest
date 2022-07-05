@@ -11,7 +11,7 @@ export const config = (contentType?: string) => ({
 export function handler(err: any) {
   let error = err;
 
-  if (err.response && err.response.data.hasOwnProperty('message'))
+  if (err.response && err.response.data?.hasOwnProperty('message'))
     error = err.response.data;
   else if (!err.hasOwnProperty('message')) error = err.toJSON();
 

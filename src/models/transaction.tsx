@@ -1,17 +1,17 @@
 import {createModel} from '@rematch/core';
 import {RootModel} from '.';
 import * as api from '../services/api/transaction';
-import {TypeTransaction} from '../types/Transaction';
+import {TypeHashTransaction, TypeTransaction} from '../types/Transaction';
 
 const defaultValue = {
-  transactionList: [] as Array<TypeTransaction>,
+  transactionList: {} as TypeHashTransaction,
   transactionDetail: {} as TypeTransaction,
 };
 
 export const transaction = createModel<RootModel>()({
   state: defaultValue,
   reducers: {
-    updateTransactionListData(state, payload: Array<TypeTransaction>) {
+    updateTransactionListData(state, payload: TypeHashTransaction) {
       state.transactionList = payload;
       return state;
     },
