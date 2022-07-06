@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.WHITE,
     borderRadius: 5,
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
 });

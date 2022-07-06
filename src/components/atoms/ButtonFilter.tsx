@@ -7,10 +7,11 @@ import IonIcons from 'react-native-vector-icons/Ionicons';
 
 export type Props = {
   containerStyle?: ViewStyle;
+  sortName: string;
   onPress?: (data?: any) => void;
 };
 
-const ButtonFilter: React.FC<Props> = ({containerStyle, onPress}) => {
+const ButtonFilter: React.FC<Props> = ({containerStyle, sortName, onPress}) => {
   return (
     <View style={[styles.containerButton, containerStyle]}>
       <Ripple
@@ -23,7 +24,7 @@ const ButtonFilter: React.FC<Props> = ({containerStyle, onPress}) => {
             TextStyle.TEXT_14SP_BOLD,
             {color: Colors.RED, marginRight: 2},
           ]}>
-          URUTKAN
+          {sortName}
         </Text>
         <IonIcons name="chevron-down" color={Colors.RED} size={24} />
       </Ripple>

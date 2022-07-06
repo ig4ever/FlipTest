@@ -4,20 +4,20 @@ import {Text, View, StyleSheet} from 'react-native';
 import {RadioButton} from 'react-native-paper';
 import {Colors} from '../../styles/Colors';
 import TextStyle from '../../styles/Text';
-import {EnumFilter} from '../../constants';
+import {EnumSort} from '../../constants';
 
 type Props = {
   value: string;
   isVisible: boolean;
   onClose: () => void;
-  onSubmit: (data: string) => void;
+  onValueChange: (data: string) => void;
 };
 
 const ModalFilter: React.FC<Props> = ({
   value,
   isVisible,
   onClose,
-  onSubmit,
+  onValueChange,
 }) => {
   return (
     <Modal
@@ -28,77 +28,75 @@ const ModalFilter: React.FC<Props> = ({
       onBackButtonPress={onClose}
       onBackdropPress={onClose}>
       <View style={styles.container}>
-        <RadioButton.Group
-          onValueChange={newValue => onSubmit(newValue)}
-          value={value}>
+        <RadioButton.Group onValueChange={onValueChange} value={value}>
           <View style={styles.containerRadioButton}>
             <RadioButton
               uncheckedColor={Colors.RED}
               color={Colors.RED}
-              value={EnumFilter.URUTKAN}
+              value={EnumSort.URUTKAN}
             />
             <Text
               style={[
                 TextStyle.TEXT_16SP_MEDIUM,
                 {color: Colors.BLACK, marginLeft: 2},
               ]}>
-              Urutkan
+              {EnumSort.URUTKAN}
             </Text>
           </View>
           <View style={styles.containerRadioButton}>
             <RadioButton
               uncheckedColor={Colors.RED}
               color={Colors.RED}
-              value={EnumFilter.A_Z}
+              value={EnumSort.A_Z}
             />
             <Text
               style={[
                 TextStyle.TEXT_16SP_MEDIUM,
                 {color: Colors.BLACK, marginLeft: 2},
               ]}>
-              Nama A-Z
+              {EnumSort.A_Z}
             </Text>
           </View>
           <View style={styles.containerRadioButton}>
             <RadioButton
               uncheckedColor={Colors.RED}
               color={Colors.RED}
-              value={EnumFilter.Z_A}
+              value={EnumSort.Z_A}
             />
             <Text
               style={[
                 TextStyle.TEXT_16SP_MEDIUM,
                 {color: Colors.BLACK, marginLeft: 2},
               ]}>
-              Nama Z-A
+              {EnumSort.Z_A}
             </Text>
           </View>
           <View style={styles.containerRadioButton}>
             <RadioButton
               uncheckedColor={Colors.RED}
               color={Colors.RED}
-              value={EnumFilter.NEWEST}
+              value={EnumSort.NEWEST}
             />
             <Text
               style={[
                 TextStyle.TEXT_16SP_MEDIUM,
                 {color: Colors.BLACK, marginLeft: 2},
               ]}>
-              Tanggal Terbaru
+              {EnumSort.NEWEST}
             </Text>
           </View>
           <View style={[styles.containerRadioButton, {marginBottom: 0}]}>
             <RadioButton
               uncheckedColor={Colors.RED}
               color={Colors.RED}
-              value={EnumFilter.OLDER}
+              value={EnumSort.OLDEST}
             />
             <Text
               style={[
                 TextStyle.TEXT_16SP_MEDIUM,
                 {color: Colors.BLACK, marginLeft: 2},
               ]}>
-              Tanggal Terlama
+              {EnumSort.OLDEST}
             </Text>
           </View>
         </RadioButton.Group>

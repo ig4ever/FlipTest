@@ -10,6 +10,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaView style={styles.container}>
+        {/* FlashMessage Component used for showing message, when occur error message from API */}
         <FlashMessage position="top" />
         <AppNavigator />
       </SafeAreaView>

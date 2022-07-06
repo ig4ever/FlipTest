@@ -1,13 +1,12 @@
-import {RefreshControl, StyleSheet, Text, View} from 'react-native';
+import {RefreshControl, StyleSheet, Text, View, FlatList} from 'react-native';
 import React from 'react';
 import {TypeTransaction} from '../../types/Transaction';
-import {FlatList} from 'react-native-gesture-handler';
-import CardItemTransaction from '../molecules/CardItemListTransaction';
+import CardItemListTransaction from '../molecules/CardItemListTransaction';
 import {Colors} from '../../styles/Colors';
 import TextStyle from '../../styles/Text';
 
 export type Props = {
-  data: Array<TypeTransaction>;
+  data: any;
   loading: boolean;
   onRefresh: () => void;
   onPressItem: (data: TypeTransaction) => void;
@@ -20,8 +19,13 @@ const ListItemTransaction: React.FC<Props> = ({
   onPressItem,
 }) => {
   const renderItem = ({item}: any) => (
-    <CardItemTransaction data={item} onPressItem={() => onPressItem(item)} />
+    <CardItemListTransaction
+      data={item[1]}
+      onPressItem={() => onPressItem(item)}
+    />
   );
+
+  const keyExtractor = (item: any, index: number) => item[1]?.id + index;
 
   const ListEmptyComponent = () => (
     <View style={{alignSelf: 'center', marginTop: 16}}>
@@ -42,7 +46,7 @@ const ListItemTransaction: React.FC<Props> = ({
       }
       renderItem={renderItem}
       ListEmptyComponent={ListEmptyComponent}
-      keyExtractor={(item: TypeTransaction, index: number) => item?.id + index}
+      keyExtractor={keyExtractor}
     />
   );
 };

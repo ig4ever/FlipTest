@@ -1,6 +1,6 @@
 import {showMessage} from 'react-native-flash-message';
 
-// ** API Config  */
+// ** API Configuration  */
 export const config = (contentType?: string) => ({
   headers: {
     'Content-Type': contentType ?? 'application/json',
@@ -15,6 +15,7 @@ export function handler(err: any) {
     error = err.response.data;
   else if (!err.hasOwnProperty('message')) error = err.toJSON();
 
+  // ** Show error message within FlashMessage Component  */
   showMessage({
     message: error.message,
     type: 'danger',

@@ -1,8 +1,6 @@
-import Reactotron, {
-  openInEditor,
-  networking,
-} from 'reactotron-react-native';
-import { reactotronRedux } from 'reactotron-redux';
+//** I often using reactotron to help debugging. */
+import Reactotron, {openInEditor, networking} from 'reactotron-react-native';
+import {reactotronRedux} from 'reactotron-redux';
 
 declare global {
   interface Console {
@@ -11,10 +9,10 @@ declare global {
 }
 
 export default Reactotron.configure()
-.useReactNative()
-.use(reactotronRedux())
-.use(openInEditor())
-.use(networking())
-.connect();
+  .useReactNative()
+  .use(reactotronRedux())
+  .use(openInEditor())
+  .use(networking())
+  .connect();
 
 console.tron = Reactotron;

@@ -6,10 +6,15 @@ import TextStyle from '../../styles/Text';
 
 export type Props = {
   containerStyle?: ViewStyle;
+  value: string;
   onChangeText: (data: string) => void;
 };
 
-const InputSearch: React.FC<Props> = ({containerStyle, onChangeText}) => {
+const InputSearch: React.FC<Props> = ({
+  containerStyle,
+  value,
+  onChangeText,
+}) => {
   return (
     <View style={[styles.container, containerStyle]}>
       <IonIcons
@@ -22,6 +27,7 @@ const InputSearch: React.FC<Props> = ({containerStyle, onChangeText}) => {
         style={[TextStyle.TEXT_14SP_MEDIUM]}
         placeholder={'Cari nama, bank, atau nominal'}
         onChangeText={onChangeText}
+        value={value}
       />
     </View>
   );

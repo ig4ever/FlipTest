@@ -6,6 +6,7 @@ import immerPlugin from '@rematch/immer';
 
 type FullModel = ExtraModelsFromLoading<RootModel>;
 
+//** Setup rematch configuration */
 export const store = init<RootModel, FullModel>({
   models,
   redux: {

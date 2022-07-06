@@ -5,13 +5,24 @@ import ButtonFilter from '../atoms/ButtonFilter';
 import InputSearch from '../atoms/InputSearch';
 
 export type Props = {
+  value: string;
+  sortName: string;
   onChangeText: (data: string) => void;
+  onPress: () => void;
 };
-const Header: React.FC<Props> = ({onChangeText}) => {
+const Header: React.FC<Props> = ({value, sortName, onChangeText, onPress}) => {
   return (
     <View style={styles.container}>
-      <InputSearch containerStyle={{flex: 3}} onChangeText={onChangeText} />
-      <ButtonFilter containerStyle={{flex: 1}} />
+      <InputSearch
+        containerStyle={{flex: 3}}
+        onChangeText={onChangeText}
+        value={value}
+      />
+      <ButtonFilter
+        containerStyle={{flex: 1}}
+        sortName={sortName}
+        onPress={onPress}
+      />
     </View>
   );
 };
