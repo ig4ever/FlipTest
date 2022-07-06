@@ -24,10 +24,6 @@ const useFetchTransactions = () => {
 
   //** Method for initialize data */
   const initResponse = useCallback(() => {
-    //** Always reset the transactions state to makes sure data empty while initialize,
-    //** it's not neccassary actually, but just in case while the data of the response are equal,
-    //** so it will be always re-render if i reset the state. */ */
-    dispatch.transaction.resetData();
     dispatch.transaction.getListTransaction();
   }, [dispatch.transaction]);
 

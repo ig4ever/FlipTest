@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {Keyboard, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useFetchTransactions from '../hooks/useFetchTransactionList';
 import Header from '../components/molecules/Header';
@@ -44,6 +44,8 @@ const TransactionList: React.FC<Props> = ({navigation}) => {
   };
 
   const onOpenModal = () => {
+    //** dismiss keyboard to prevent bug keyboard input not shown on some devices.  */
+    Keyboard.dismiss();
     setIsVisible(true);
   };
 
